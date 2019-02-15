@@ -1,0 +1,36 @@
+<!--
+  Generated template for the Sitio3Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Animales y mascotas (Segunda Mano)</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor='let masc of mascotas' col-4>
+          <ion-card (click)="VerMascota(masc)">
+            <img *ngIf="masc.ad.hasOwnProperty('thumbnail')"
+            src="https://img.segundamano.mx/cover/{{masc.ad.thumbnail.path}}">
+            <img *ngIf="!masc.ad.hasOwnProperty('thumbnail')"
+            src="../assets/imgs/logo.png">
+            <ion-card-content>
+             <h1 *ngIf="masc.ad.hasOwnProperty('subject')">
+                  {{masc.ad.subject}} 
+              </h1>
+               <h2 *ngIf="masc.ad.hasOwnProperty('list_price')">
+                Precio: {{masc.ad.list_price.label}}
+               </h2> 
+
+            </ion-card-content>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

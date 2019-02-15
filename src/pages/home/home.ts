@@ -1,38 +1,44 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { InfoPage } from '../info/info';
+import { FavoritosPage } from '../favoritos/favoritos';
+import { BuscarPage } from '../buscar/buscar';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-depas=[];
-
+consolas=[];
+inf=InfoPage;
+fav=FavoritosPage;
+busc=BuscarPage;
   constructor(public navCtrl: NavController, public http:HttpClient) {
-    this.http.get('/v1/api/pin-data?url=/s-renta-inmuebles/guadalajara-y-zona-metro/v1c1098l10567p1&geo=(21.10631012145462,-102.42214381725364),(20.21712862656199,-104.32387728274637)')
+    this.http.get('/v1/klfst?&category=5060&offset=1&lim=29&lang=es')
     .subscribe(data=>
-      {console.log(JSON.stringify(data));
-      if(data.hasOwnProperty('ads')){
-        console.log(data.ads.all);
-        this.depas=data.ads;
+      {
+        //console.log(JSON.stringify(data));
+      if(data.hasOwnProperty('counter_map')){
+        console.log(data.counter_map.all);
+        
+      }
+      if(data.hasOwnProperty('list_ads')){
+        this.consolas=data.list_ads;
       }
       },
-      error => {console.log(JSON.stringify(error))}
+      error => {console.log(JSON.stringify(error));
       
-      
-      
-      
-      
-      
-      
-      
-      
-      )
+      });
   }
-
+VerConsola(cons){
+     this.navCtrl.push(this.inf, {cons:cons});
+    }
+Favoritos(){
+  this.navCtrl.push(this.fav, {cons:this.consolas})
 }
-//Título no existe
-//Imagen está arriba, encima de renta
-// Precio está ubicado en el apartado de renta, debajo de la imagen
-//Ubicación está debajo del precio, con ciudad y colonia juntos
+Buscar()
+{
+  this.navCtrl.push(this.busc, {cons:this.consolas})
+}
+  }

@@ -1,25 +1,37 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Inmuebles en Renta
+      Consolas y videojuegos (Segunda mano)
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="Favoritos()">
+        <ion-icon name="heart" style= "color:red"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="Buscar()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor='let dep of depas' col-4>
-          <ion-card>
-            <img *ngIf="dep.hasOwnProperty('pictures')"
-            src="{{dep.pictures[0].url}}">
+      <ion-col *ngFor='let cons of consolas' col-4>
+          <ion-card (click)="VerConsola(cons)">
+            <img *ngIf="cons.ad.hasOwnProperty('thumbnail')"
+            src="https://img.segundamano.mx/cover/{{cons.ad.thumbnail.path}}">
+            <img *ngIf="!cons.ad.hasOwnProperty('thumbnail')"
+            src="../assets/imgs/logo.png">
             <ion-card-content>
-             <h1 *ngIf="dep.hasOwnProperty('price')">
-                 Renta: {{dep.price.formattedAmount}} <!--Precio-->
+             <h1 *ngIf="cons.ad.hasOwnProperty('subject')">
+                  {{cons.ad.subject}} 
               </h1>
-               <h2 *ngIf="dep.hasOwnProperty('geo')">
-                Ubicación: {{dep.geo.name}},  {{dep.geo.displayName}} <!--Ubicación-->
-               </h2>
+               <h2 *ngIf="cons.ad.hasOwnProperty('list_price')">
+                Precio: {{cons.ad.list_price.label}}
+               </h2> 
 
             </ion-card-content>
           </ion-card>
