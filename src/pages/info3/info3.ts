@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Favoritos2Provider } from '../../providers/favoritos2/favoritos2';
+import { FavoritosProvider } from '../../providers/favoritos/favoritos';
 
 /**
  * Generated class for the Info3Page page.
@@ -16,7 +18,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class Info3Page {
 masc={};
 imgs3=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fav2:FavoritosProvider) {
   this.masc=this.navParams.get('masc');
   if(this.masc.ad.hasOwnProperty('images'))
   {
@@ -27,5 +29,9 @@ imgs3=[];
   ionViewDidLoad() {
     console.log('ionViewDidLoad Info3Page');
   }
-
+  Addfavoritos(masc)
+  {
+    //this.fav2.addFavoritos2(masc);
+    this.fav2.addFavoritos(masc); 
+  }
 }

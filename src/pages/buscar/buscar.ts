@@ -32,7 +32,7 @@ export class BuscarPage {
       this.items=this.consolas.filter(cons=>{ return cons.ad.subject.toLowerCase().includes(ev.target.value.toLowerCase())})
     }
   
-    // ver(item){
-    //   this.navCtrl.push(this.infoP, {producto:item})
-    // }
+    ver(item){
+      this.navCtrl.push(this.infoP, {cons:item})
+    }
 }

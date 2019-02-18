@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Favoritos1Provider } from '../../providers/favoritos1/favoritos1';
+import { FavoritosProvider } from '../../providers/favoritos/favoritos';
 
 /**
  * Generated class for the Info2Page page.
@@ -17,7 +18,7 @@ import { Favoritos1Provider } from '../../providers/favoritos1/favoritos1';
 export class Info2Page {
 prod={};
 imgs2=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fav1: Favoritos1Provider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fav1: FavoritosProvider) {
     this.prod=this.navParams.get('prod');
     if(this.prod.ad.hasOwnProperty('images'))
     {
@@ -31,7 +32,7 @@ imgs2=[];
 
   addfavoritos(prod)
   {
-    this.fav1.addFavoritos1(prod); 
+    this.fav1.addFavoritos(prod); 
   }
 
 }

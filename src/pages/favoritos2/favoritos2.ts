@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Favoritos2Provider } from '../../providers/favoritos2/favoritos2';
 
 /**
  * Generated class for the Favoritos2Page page.
@@ -14,8 +15,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'favoritos2.html',
 })
 export class Favoritos2Page {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  items2=[];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fav2:Favoritos2Provider) {
+    this.items2=this.fav2.getFavoritos2();
   }
 
   ionViewDidLoad() {

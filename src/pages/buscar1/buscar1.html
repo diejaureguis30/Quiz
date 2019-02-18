@@ -6,13 +6,13 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Buscar</ion-title>
+    <ion-title  style="background-color: #61FF7E">Buscar</ion-title>
   </ion-navbar>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
+<ion-content padding style="background-color: #436066">
+  <ion-list >
     <ion-item *ngFor="let item1 of items1">
       <ion-thumbnail item-start>
         <img *ngIf="item1.ad.hasOwnProperty('thumbnail')" 
@@ -22,7 +22,7 @@
       <p *ngIf="item1.ad.hasOwnProperty('list_price')">
         {{item1.ad.list_price.label}}
       </p>
-      <!-- <button ion-button clear item-end (click)="ver(item1)">Ver</button> -->
+      <button ion-button clear item-end (click)="ver1(item1)">Ver</button>
     </ion-item>
   </ion-list>
 </ion-content>

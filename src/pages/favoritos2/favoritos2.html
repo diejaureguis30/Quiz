@@ -6,10 +6,23 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>favoritos2</ion-title>
+    <ion-title>Anuncios Favoritos</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list style="background-color: #436066">
+    <ion-item *ngFor="let item2 of items2">
+      <ion-thumbnail item-start>
+        <img *ngIf="item2.ad.hasOwnProperty('thumbnail')" 
+        src="https://img.segundamano.mx/cover/{{item2.ad.thumbnail.path}}">
+      </ion-thumbnail>
+  
+      <h2> {{item2.ad.subject}}</h2>
+      <p *ngIf="item2.ad.hasOwnProperty('list_price')">
+        {{item2.ad.list_price.label}}
+      </p>
+      <!-- <button ion-button clear item-end (click)="verCasa(item)">Ver</button> -->
+    </ion-item>
+  </ion-list>
 </ion-content>

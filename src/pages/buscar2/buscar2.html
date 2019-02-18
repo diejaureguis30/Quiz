@@ -6,10 +6,23 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>buscar2</ion-title>
+    <ion-title  style="background-color: #61FF7E">Buscar</ion-title>
   </ion-navbar>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content padding style="background-color: #436066">
+  <ion-list >
+    <ion-item *ngFor="let item2 of items2">
+      <ion-thumbnail item-start>
+        <img *ngIf="item2.ad.hasOwnProperty('thumbnail')" 
+        src="https://img.segundamano.mx/cover/{{item2.ad.thumbnail.path}}">
+      </ion-thumbnail>
+      <h2> {{item2.ad.subject}}</h2>
+      <p *ngIf="item2.ad.hasOwnProperty('list_price')">
+        {{item2.ad.list_price.label}}
+      </p>
+      <button ion-button clear item-end (click)="ver2(item2)">Ver</button>
+    </ion-item>
+  </ion-list>
 </ion-content>

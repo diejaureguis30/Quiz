@@ -20,16 +20,20 @@ export class Buscar1Page {
   info1P= Info2Page;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     
-      this.items1= this.navParams.get('prod');
+      this.productos= this.navParams.get('prod');
   }
     ionViewDidLoad() {
       console.log('ionViewDidLoad BuscarPage');
     }
   
-    getItems(ev){
+    getItems(ev: any){
       console.log(ev.target.value);
     
       this.items1=this.productos.filter(prod=>{ return prod.ad.subject.toLowerCase().includes(ev.target.value.toLowerCase());});
+    }
+
+    ver(item1){
+      this.navCtrl.push(this.info1P, {prod:item1})
     }
   }
 

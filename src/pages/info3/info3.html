@@ -6,14 +6,14 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Detalles del anuncio</ion-title>
+    <ion-title  style="background-color: #61FF7E">Detalles del anuncio</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding style="background-color: #436066">
   <ion-card>
     <ion-slides pager>
-      <ion-slide *ngFor="let img3 of imgs3">
+      <ion-slide *ngFor="let img3 of imgs3" >
         <img src="https://img.segundamano.mx/medium/{{img3.path}}">
       </ion-slide>
     </ion-slides>
