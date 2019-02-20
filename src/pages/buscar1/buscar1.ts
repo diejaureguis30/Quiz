@@ -32,7 +32,7 @@ export class Buscar1Page {
       this.items1=this.productos.filter(prod=>{ return prod.ad.subject.toLowerCase().includes(ev.target.value.toLowerCase());});
     }
 
-    ver(item1){
+    ver1(item1){
       this.navCtrl.push(this.info1P, {prod:item1})
     }
   }
